@@ -1,34 +1,33 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
 import './App.css'
+import {Sidebar, type SidebarItem} from "./modules/sidebar";
 
 function App() {
-  const [count, setCount] = useState(0)
+
+  const items: SidebarItem[] = [
+    {key: '1', label: 'first', iconData: 'https://www.svgrepo.com/show/535115/alien.svg'},
+    {key: '2', label: 'second', iconData: 'https://www.svgrepo.com/show/535116/address-card.svg', children: [
+      {key: '2_1`', label: '2222-1'},
+      {key: '2_2`', label: '2222-2'},
+      {key: '2_3`', label: '2222-3'}
+    ]},
+    {key: '3', label: 'third', iconData: 'https://www.svgrepo.com/show/535118/accessibility.svg', children: [
+      {key: '3_1`', label: '3333-1'},
+      {key: '3_2`', label: '3333-2'},
+      {key: '3_3`', label: '3333-3'}
+    ]},
+    {key: '4', label: 'fourth', iconData: 'https://www.svgrepo.com/show/535122/align-center-horizontal.svg'},
+    {key: '5', label: 'fifth', iconData: 'https://www.svgrepo.com/show/535132/anchor.svg'},
+
+
+  ];
 
   return (
-    <>
-      <div>
-        <a href="https://vite.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.tsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </>
+    <div className='flex h-full'>
+     <Sidebar
+       items={items}
+       titleLabel={'header'}
+     />
+    </div>
   )
 }
 

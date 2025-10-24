@@ -1,6 +1,12 @@
 import {SidebarFooterView} from "../views/sidebar-footer-view.tsx";
+import type {ReactNode} from "react";
 
-export type SidebarFooterProps = {};
+export type SidebarFooterProps = {
+  // some additional props to have a possibility to customize footer, if required
+  footerContainerClasses?: string;
+  footerToggleWrapperClasses?: string;
+  footerToggleComponent?: ReactNode;
+};
 
 type SidebarFooterStateProps = {
   isOpen: boolean;
@@ -10,16 +16,25 @@ type SidebarFooterStateProps = {
 export function SidebarFooter({
   isOpen,
   onItemPress,
+  footerContainerClasses,
+  footerToggleWrapperClasses,
+  footerToggleComponent,
 }: SidebarFooterProps & SidebarFooterStateProps) {
   const iconContent = isOpen ? '<' : '>';
 
   return (
     <footer className='sidebar-footer-container mt-auto '>
       <SidebarFooterView
-        containerClass={''}
-        iconContainerClass={''}
+        containerClass={footerContainerClasses || ''}
+        iconContainerClass={footerToggleWrapperClasses || ''}
         onItemPress={onItemPress}
-      ><button>{iconContent}</button></SidebarFooterView>
+      >
+        {
+          !!footerToggleComponent
+            ? (footerToggleComponent)
+            : <button>{iconContent}</button>
+        }
+      </SidebarFooterView>
     </footer>
 
   );

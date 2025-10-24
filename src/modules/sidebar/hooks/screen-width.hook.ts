@@ -1,12 +1,20 @@
 import {useEffect, useRef, useState} from "react";
 
-export function useScreenWidth() {
+export function useScreenWidth(
+  mobileBreakpoint: number,
+  callback: (width: number, isMobileView: boolean) => void,
+) {
   const widthRef = useRef<number>(window.innerWidth);
   const [_, setTrigger] = useState<number>(0);
 
+  callback(window.innerWidth, window.innerWidth < mobileBreakpoint);
+
   const saveScreenSize = () => {
-    widthRef.current =  window.innerWidth;
-    setTrigger(widthRef.current);
+    const width = window.innerWidth;
+
+    widthRef.current = width;
+    setTrigger(width);
+    callback(width, width < mobileBreakpoint);
   }
 
   useEffect(() => {

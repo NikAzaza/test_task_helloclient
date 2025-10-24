@@ -10,6 +10,10 @@ export type SidebarConfigurableProps = Partial<{
   mobileHeight: number;
   desktopClosedWidth: number;
   desktopOpenedWidth: number;
+
+  initiallyOpened: boolean;
+  onStateChange: (isOpened: boolean) => void;
+  onViewPortChange: (currentWidth: number, isMobileView: boolean) => void;
 }>;
 
 type SidebarProps<Item> = SidebarLoaderProps & SidebarHeaderProps & SidebarFooterProps & SidebarConfigurableProps & {
@@ -64,7 +68,7 @@ export function Sidebar<Item extends SidebarItem>(props: SidebarProps<Item>) {
           !isMobileViewport &&
           <SidebarFooter
             isOpen={isSidebarOpen}
-            onItemPress={() => setIsSidebarOpen(!isSidebarOpen)}
+            onItemPress={() => setIsSidebarOpen()}
           />
         }
       </div>

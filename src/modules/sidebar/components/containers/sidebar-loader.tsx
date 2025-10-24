@@ -2,6 +2,7 @@ import {LoaderView} from "../views/loader-view.tsx";
 import type {ReactNode} from "react";
 
 export type SidebarLoaderProps = {
+  // classes or custom component to customize loader, if provided
   loaderContainerClasses?: string;
   customLoaderComponent?: ReactNode;
 };

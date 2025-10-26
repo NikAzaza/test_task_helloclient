@@ -1,19 +1,29 @@
-import type { SidebarItem } from "../../models/sidebar-item.model.ts";
+import type {SidebarItem, SidebarSelectedItemData} from "../../models/sidebar-item.model.ts";
 import {SidebarLoader, type SidebarLoaderProps} from "./sidebar-loader.tsx";
 import {SidebarFooter, type SidebarFooterProps} from "./sidebar-footer.tsx";
 import {SidebarHeader, type SidebarHeaderProps} from "./sidebar-header.tsx";
 import {SidebarContent} from "./sidebar-content.tsx";
 import {useSidebar} from "../../hooks/sidebar.hook.ts";
+import type {
+  StateChangeCallback,
+  ViewportChangeCallback
+} from "../../models/sidebar-config.model.ts";
 
 export type SidebarConfigurableProps = Partial<{
+  // sidebar size-related values
   mobileBreakpoint: number;
   mobileHeight: number;
   desktopClosedWidth: number;
   desktopOpenedWidth: number;
 
+  // sidebar state-related and viewport change-related values
   initiallyOpened: boolean;
-  onStateChange: (isOpened: boolean) => void;
-  onViewPortChange: (currentWidth: number, isMobileView: boolean) => void;
+  onStateChange: StateChangeCallback;
+  onViewPortChange: ViewportChangeCallback;
+
+  // sidebar selected-related config
+  initiallySelectedItem: SidebarSelectedItemData;
+  onItemPressedCallback: (selectedItem: SidebarSelectedItemData) => void;
 }>;
 
 type SidebarProps<Item> = SidebarLoaderProps & SidebarHeaderProps & SidebarFooterProps & SidebarConfigurableProps & {
@@ -28,6 +38,7 @@ export function Sidebar<Item extends SidebarItem>(props: SidebarProps<Item>) {
     isMobileViewport,
     isSidebarOpen,
     setIsSidebarOpen,
+    selectionUtils,
   } = useSidebar(props);
 
   return (
@@ -62,6 +73,7 @@ export function Sidebar<Item extends SidebarItem>(props: SidebarProps<Item>) {
           isExpanded={isSidebarOpen}
           isMobileView={isMobileViewport}
           viewportClasses={`${stylesConfig.viewportContainerClasses} ${stylesConfig.viewportScrollClasses}`}
+          selectUtils={selectionUtils}
         ></SidebarContent>
 
         {

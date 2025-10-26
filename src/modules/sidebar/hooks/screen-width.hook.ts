@@ -1,23 +1,22 @@
 import {useEffect, useRef, useState} from "react";
+import type {SidebarConfig} from "../models/sidebar-config.model.ts";
 
-export function useScreenWidth(
-  mobileBreakpoint: number,
-  callback: (width: number, isMobileView: boolean) => void,
-) {
+export function useScreenWidth(config: SidebarConfig) {
   const widthRef = useRef<number>(window.innerWidth);
-  const [_, setTrigger] = useState<number>(0);
 
-  callback(window.innerWidth, window.innerWidth < mobileBreakpoint);
+  const [_, setTrigger] = useState<number>(0);
 
   const saveScreenSize = () => {
     const width = window.innerWidth;
 
     widthRef.current = width;
     setTrigger(width);
-    callback(width, width < mobileBreakpoint);
+    config.onViewPortChange(width, width <  config.mobileBreakpoint);
   }
 
   useEffect(() => {
+    config.onViewPortChange(window.innerWidth, window.innerWidth < config.mobileBreakpoint);
+
     window.addEventListener('resize', saveScreenSize);
 
     return () => {

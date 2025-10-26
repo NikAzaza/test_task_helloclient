@@ -1,6 +1,6 @@
 import type {SidebarConfig} from "../models/sidebar-config.model.ts";
 
-export function useSidebarStylesConfig(config: SidebarConfig, isMobileViewport: boolean, isSidebarOpened: boolean) {
+export function useSidebarStyles(config: SidebarConfig, isMobileViewport: boolean, isSidebarOpened: boolean) {
   const sidebarWidth = isMobileViewport
     ? '100%' // in mobile view occupy the whole available width
     : isSidebarOpened ? config.desktopOpenedWidth: config.desktopMinifiedWidth; // for desktop use fixed width dependently on open state

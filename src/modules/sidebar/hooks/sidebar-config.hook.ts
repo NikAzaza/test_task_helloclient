@@ -14,5 +14,12 @@ export function useSidebarConfig(sidebarProps: SidebarConfigurableProps): Sideba
     desktopMinifiedWidth: setConfigPixelRelatedValue(sidebarProps.desktopClosedWidth, MINIFIED_SIDEBAR_WIDTH_PX),
     desktopOpenedWidth: setConfigPixelRelatedValue(sidebarProps.desktopOpenedWidth, OPENED_SIDEBAR_WIDTH_PX),
     mobileHeight: setConfigPixelRelatedValue(sidebarProps.mobileHeight, MOBILE_VIEW_HEIGHT_PX),
+
+    initiallyOpened: sidebarProps.initiallyOpened || false,
+    onStateChange: sidebarProps.onStateChange || (() => {}),
+    onViewPortChange: sidebarProps.onViewPortChange || (() => {}),
+
+    initiallySelectedItemData: sidebarProps.initiallySelectedItem || {index: null, childIndex: null},
+    onItemPressed: sidebarProps.onItemPressedCallback || (() => {}),
   };
 }

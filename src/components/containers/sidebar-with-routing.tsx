@@ -33,6 +33,7 @@ export function SidebarWithRouting() {
         // initiallyOpened={sidebarOpened}
         // onStateChange={(isOpened) => setSidebarOpened(isOpened)}
         onViewPortChange={(_, isMobileView) => setIsMobileView(isMobileView)}
+        // onItemPressedCallback={console.log}
       />
       <div>content</div>
     </div>

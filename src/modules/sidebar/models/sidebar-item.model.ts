@@ -9,3 +9,8 @@ export type SidebarItem = SidebarBaseItem & {
 };
 
 export type SidebarSubItem = SidebarBaseItem & {};
+
+export type SidebarSelectedItemData = {
+  index: number | null;
+  childIndex: number | null;
+}

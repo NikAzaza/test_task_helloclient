@@ -39,7 +39,7 @@ export function Sidebar<Item extends SidebarItem>(props: SidebarProps<Item>) {
     isSidebarOpen,
     setIsSidebarOpen,
     selectionUtils,
-  } = useSidebar(props);
+  } = useSidebar<Item>(props, props.items);
 
   return (
     <aside

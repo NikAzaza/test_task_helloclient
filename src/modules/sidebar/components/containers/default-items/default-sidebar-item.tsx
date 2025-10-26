@@ -34,13 +34,13 @@ export function DefaultSidebarItem<T extends SidebarItem>({
       : null;
   }, [isExpanded, isMobileView, item.label]);
 
-  const listComponent = isActive && isExpanded
+  const listComponent = isActive && isExpanded && !isMobileView
     ? <DefaultSidebarChildrenList
         items={item.children}
         itemsClickHandler={(childIndex: number) => subItemPressCallback(itemIndex, childIndex)}
         isSubItemSelectedCallback={(childIndex: number) => isSubItemActiveFn(itemIndex, childIndex)}
       />
-      : null;
+    : null;
 
   const additionalClasses = isActive
     ? 'border-4 border-sky-500'

@@ -6,8 +6,9 @@ import type {SidebarConfigurableProps} from "../components/containers/sidebar.ts
 import type {SidebarConfig} from "../models/sidebar-config.model.ts";
 import {useSelectedItem} from "./selected-item.hook.ts";
 import type {SidebarSelectHookValues} from "../models/sidebar-select-hook.model.ts";
+import type {SidebarItem} from "../models/sidebar-item.model.ts";
 
-export function useSidebar(passedConfig: SidebarConfigurableProps) {
+export function useSidebar<Item extends SidebarItem>(passedConfig: SidebarConfigurableProps, items: Item[]) {
   const sidebarConfig: SidebarConfig = useSidebarConfig(passedConfig);
   const screenWidth = useScreenWidth(sidebarConfig);
   const [isSidebarOpen, setIsSidebarOpen] = useState(sidebarConfig.initiallyOpened);
@@ -21,7 +22,7 @@ export function useSidebar(passedConfig: SidebarConfigurableProps) {
     sidebarConfig.onStateChange(!isSidebarOpen)
   }, [setIsSidebarOpen, sidebarConfig.onStateChange, isSidebarOpen]);
 
-  const selectionUtils: SidebarSelectHookValues = useSelectedItem(sidebarConfig);
+  const selectionUtils: SidebarSelectHookValues = useSelectedItem(sidebarConfig, items);
 
   return {
     isMobileViewport,

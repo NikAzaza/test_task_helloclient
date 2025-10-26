@@ -17,13 +17,14 @@ export function SidebarWithRouting() {
     {key: '3', label: 'third', iconData: 'https://www.svgrepo.com/show/535118/accessibility.svg', children: [
         {key: '3_1`', label: '3333-1'},
         {key: '3_2`', label: '3333-2'},
-        {key: '3_3`', label: '3333-3'}
+        {key: '3_3`', label: '3333-3'},
+        {key: '3_4`', label: '3333-4'},
+        {key: '3_5`', label: '3333-5'},
+        {key: '3_6`', label: '3333-6'}
       ]},
     {key: '4', label: 'fourth', iconData: 'https://www.svgrepo.com/show/535122/align-center-horizontal.svg'},
     {key: '5', label: 'fifth', iconData: 'https://www.svgrepo.com/show/535132/anchor.svg'},
   ];
-
-  console.log('isMobile view:', isMobileView)
 
   return (
     <div className={`flex ${pageClasses} w-full h-full`}>

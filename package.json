@@ -10,7 +10,12 @@
     "preview": "my-vue-app/node_modules/.bin/vite preview"
   },
   "dependencies": {
+    "@heroui/modal": "^2.2.24",
+    "@heroui/react": "^2.8.5",
+    "@heroui/system": "^2.4.23",
+    "@heroui/theme": "^2.4.23",
     "@tailwindcss/vite": "^4.1.16",
+    "framer-motion": "^12.23.24",
     "react": "^19.1.1",
     "react-dom": "^19.1.1",
     "react-router": "^7.9.4",

@@ -1,9 +1,10 @@
 import {useState} from "react";
-import {Sidebar, type SidebarItem} from "../../../modules/sidebar";
+import {Sidebar, type SidebarItem, type SidebarSelectedItemData} from "../../../modules/sidebar";
 
 export function SidebarWithMockData() {
-  // const [sidebarOpened, setSidebarOpened] = useState(true);
+  const [sidebarOpened, setSidebarOpened] = useState(true);
   const [isMobileView, setIsMobileView] = useState(false);
+  const [selection, setSelection] = useState<SidebarSelectedItemData>({index: null, childIndex: null});
 
   const pageClasses = isMobileView ? 'flex-col-reverse' : 'flex-row';
 
@@ -26,18 +27,33 @@ export function SidebarWithMockData() {
     {key: '5', label: 'fifth', iconData: 'https://www.svgrepo.com/show/535132/anchor.svg'},
   ];
 
+  const label = () => {
+    if (!Number.isInteger(selection.index)) {
+      return 'default content';
+    }
+
+    const item = items[selection.index || 0];
+    if (!item.children || !Number.isInteger(selection.childIndex)) {
+      return item.label;
+    }
+
+    const subItem = item.children[selection.childIndex || 0];
+
+    return subItem.label;
+  }
+
   return (
     <div className={`flex ${pageClasses} w-full h-full`}>
       <Sidebar
         items={items}
-        titleLabel={'header'}
+        titleLabel={sidebarOpened ? 'header' : ''}
         desktopClosedWidth={40}
         initiallyOpened={true}
-        // onStateChange={(isOpened) => setSidebarOpened(isOpened)}
+        onStateChange={(isOpened) => setSidebarOpened(isOpened)}
         onViewPortChange={(_, isMobileView) => setIsMobileView(isMobileView)}
-        // onItemPressedCallback={console.log}
+        onItemPressedCallback={setSelection}
       />
-      <div>content</div>
+      <div className='pl-2'>{label()}</div>
     </div>
   );
 }

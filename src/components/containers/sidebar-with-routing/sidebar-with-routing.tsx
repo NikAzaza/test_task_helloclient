@@ -8,6 +8,7 @@ export function SidebarWithRouting() {
   const navigate = useNavigate();
   const location = useLocation();
   const [isMobileView, setIsMobileView] = useState(false);
+  const [isMinifiedView, setIsMinifiedView] = useState(false);
 
   const pageClasses = isMobileView ? 'flex-col-reverse' : 'flex-row';
 
@@ -34,9 +35,9 @@ export function SidebarWithRouting() {
       <Sidebar
         items={routesData.items}
         initiallySelectedItem={initialUrlSelectedRoute ?? routesData.initialSelection}
-        titleLabel={'header'}
+        titleLabel={isMinifiedView ? '' : 'header'}
         desktopClosedWidth={40}
-        // onStateChange={(isOpened) => setSidebarOpened(isOpened)}
+        onStateChange={(isOpened) => setIsMinifiedView(!isOpened)}
         onViewPortChange={(_, isMobileView) => setIsMobileView(isMobileView)}
         onItemPressedCallback={handleItemPress}
       />

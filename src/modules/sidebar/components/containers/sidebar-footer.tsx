@@ -32,7 +32,7 @@ export function SidebarFooter({
         {
           !!footerToggleComponent
             ? (footerToggleComponent)
-            : <button>{iconContent}</button>
+            : <button style={{padding: '4px 10px'}}>{iconContent}</button>
         }
       </SidebarFooterView>
     </footer>

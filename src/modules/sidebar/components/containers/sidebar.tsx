@@ -43,7 +43,7 @@ export function Sidebar<Item extends SidebarItem>(props: SidebarProps<Item>) {
 
   return (
     <aside
-      className={`sidebar-container relative ${stylesConfig.viewportContainerClasses} ${props.sidebarContainerClasses || ''}`}
+      className={`sidebar-container relative bg-blue-100 ${stylesConfig.viewportContainerClasses} ${props.sidebarContainerClasses || ''}`}
       style={{width: stylesConfig.sidebarWidth, height: stylesConfig.sidebarHeight}}
     >
       {/* optional loader */}

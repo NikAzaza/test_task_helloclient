@@ -26,8 +26,6 @@ export function SidebarWithRouting() {
       childPath = pressedItem.children[+selectedItemData.childIndex].key;
     }
 
-    console.log('navigate to', childPath ?? pressedItem.key)
-
     navigate(childPath ?? pressedItem.key)
   }
 

@@ -1,4 +1,3 @@
-import {PageTitleView} from "../../view/page-title-view.tsx";
 import {Outlet} from "react-router";
 
 export function ActionsPage() {

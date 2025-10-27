@@ -19,11 +19,11 @@ export function SidebarWithRouting() {
       return;
     }
 
-    const pressedItem = routesData.items[+selectedItemData.index];
+    const pressedItem = routesData.items[selectedItemData.index || 0];
     let childPath: string | undefined = undefined;
 
     if (pressedItem.children && Number.isInteger(selectedItemData.childIndex)) {
-      childPath = pressedItem.children[+selectedItemData.childIndex].key;
+      childPath = pressedItem.children[selectedItemData.childIndex || 0].key;
     }
 
     navigate(childPath ?? pressedItem.key)

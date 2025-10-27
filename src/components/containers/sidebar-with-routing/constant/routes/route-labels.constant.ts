@@ -1,6 +1,6 @@
 import {RoutePaths} from "../../enums/route-paths.enum.ts";
 
-export const ROUTE_LABELS: Record<RoutePaths, string> = {
+export const ROUTE_LABELS: Record<string, string> = {
   [RoutePaths.HOME]: 'Home page',
   [RoutePaths.ACTIONS]: 'actions',
   [RoutePaths.ACTION_1]:  "first action",

@@ -20,8 +20,8 @@ export function transformRoutesToSidebarItems(routes: RouteObject[]): {
 
     const route: SidebarItem = {
       key: rootRoute.path || '',
-      label: ROUTE_LABELS[(rootRoute.path || RoutePaths.HOME) as RoutePaths],
-      iconData: ROUTE_ICONS[(rootRoute.path || RoutePaths.HOME) as RoutePaths],
+      label: ROUTE_LABELS[(rootRoute.path || RoutePaths.HOME)],
+      iconData: ROUTE_ICONS[(rootRoute.path || RoutePaths.HOME)],
       children
     };
 
@@ -46,6 +46,6 @@ export function transformRoutesToSidebarItems(routes: RouteObject[]): {
 function transformChildRoute(parentRouteKey: string, childRoute: RouteObject): SidebarSubItem {
   return {
     key: `${parentRouteKey}/${childRoute.path}`,
-    label: !!childRoute.path ? ROUTE_LABELS[(childRoute.path|| RoutePaths.HOME) as RoutePaths] : '',
+    label: !!childRoute.path ? ROUTE_LABELS[(childRoute.path|| RoutePaths.HOME)] : '',
   };
 }

@@ -1,6 +1,6 @@
 import {RoutePaths} from "../../enums/route-paths.enum.ts";
 
-export const ROUTE_ICONS: Record<RoutePaths, string> = {
+export const ROUTE_ICONS: Record<string, string> = {
   [RoutePaths.HOME]: 'https://www.svgrepo.com/show/535439/home-1.svg',
   [RoutePaths.ACTIONS]: 'https://www.svgrepo.com/show/479510/tool.svg',
   [RoutePaths.ACTION_1]: 'https://www.svgrepo.com/show/448406/dot.svg',

@@ -6,6 +6,7 @@ import {useDisclosure} from "@heroui/modal";
 import {DefaultMobileSidebarChildrenList} from "./default-items/default-mobile-sidebar-children-list.tsx";
 import {DefaultPopover} from "./default-items/default-popover.tsx";
 import { useMinifiedItemsPopover} from "../../hooks/minified-items-popover.hook.ts";
+import type {MouseEvent} from "react";
 
 export type SidebarContentProps<T> = {
   items: T[];
@@ -25,7 +26,6 @@ export function SidebarContent<Item extends SidebarItem>(props: SidebarContentPr
   const {
     selectedItemIndex,
     selectedChildrenItems,
-    selectedItemHasChildren,
     getChildItemsBySelectedItemIndex,
     isItemSelected,
     isSubItemSelected,

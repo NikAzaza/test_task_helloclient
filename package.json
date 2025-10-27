@@ -5,7 +5,7 @@
   "type": "module",
   "scripts": {
     "dev": "vite",
-    "build": "my-vue-app/node_modules/.bin/tsc -b && vite build",
+    "build": "tsc -b && vite build",
     "lint": "my-vue-app/node_modules/.bin/eslint .",
     "preview": "my-vue-app/node_modules/.bin/vite preview"
   },

@@ -1,12 +1,9 @@
 import './App.css'
-import {SidebarWithRouting} from "./components/containers/sidebar-with-routing.tsx";
+import {Outlet} from "react-router";
 
 function App() {
-
   return (
-    <div className='flex h-full'>
-      <SidebarWithRouting />
-    </div>
+    <Outlet />
   )
 }
 

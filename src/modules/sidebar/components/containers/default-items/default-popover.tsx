@@ -23,7 +23,7 @@ export function DefaultPopover({
   return (
     <>
       <div
-        className='absolute flex flex-col rounded-lg w-60 z-10 overflow-hidden'
+        className='fixed flex flex-col rounded-lg w-60 z-10 overflow-hidden'
         style={{ top, left }}
         onMouseLeave={onLeaveCallback}
         onMouseEnter={onEnterCallback}

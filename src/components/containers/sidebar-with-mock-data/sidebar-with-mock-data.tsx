@@ -1,7 +1,7 @@
 import {useState} from "react";
-import {Sidebar, type SidebarItem} from "../../modules/sidebar";
+import {Sidebar, type SidebarItem} from "../../../modules/sidebar";
 
-export function SidebarWithRouting() {
+export function SidebarWithMockData() {
   // const [sidebarOpened, setSidebarOpened] = useState(true);
   const [isMobileView, setIsMobileView] = useState(false);
 
@@ -32,7 +32,7 @@ export function SidebarWithRouting() {
         items={items}
         titleLabel={'header'}
         desktopClosedWidth={40}
-        // initiallyOpened={sidebarOpened}
+        initiallyOpened={true}
         // onStateChange={(isOpened) => setSidebarOpened(isOpened)}
         onViewPortChange={(_, isMobileView) => setIsMobileView(isMobileView)}
         // onItemPressedCallback={console.log}

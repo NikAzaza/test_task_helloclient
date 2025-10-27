@@ -4,7 +4,7 @@ type DefaultSidebarItemTextViewProps = {
 
 export function DefaultSidebarItemTextView({text}: DefaultSidebarItemTextViewProps) {
   return (
-    <p className='flex'>
+    <p className='flex pl-2'>
       {text}
     </p>
   );

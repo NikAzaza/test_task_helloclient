@@ -47,8 +47,8 @@ export function DefaultSidebarItem<T extends SidebarItem>({
     : null;
 
   const additionalClasses = isActive
-    ? 'border-4 border-sky-500'
-    : 'border-4 border-transparent';
+    ? 'border-2 border-sky-500'
+    : 'border-2 border-transparent';
 
   return (
     <DefaultSidebarItemView

@@ -22,7 +22,7 @@ export function DefaultSidebarItemView({
   return (
     <li
       title={title}
-      className={'flex flex-col ' + (containerClasses || '')}
+      className={'flex flex-col rounded-2xl ' + (containerClasses || '')}
       onMouseEnter={mouseEnterCallback}
       onMouseLeave={mouseLeaveCallback}
     >

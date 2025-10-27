@@ -8,7 +8,7 @@ import {ROUTER_2} from "./components/containers/sidebar-with-routing/constant/ro
 createRoot(document.getElementById('root')!).render(
   <StrictMode>
     <HeroUIProvider>
-      <RouterProvider router={ROUTER_2}></RouterProvider>
+      <RouterProvider router={ROUTER_2} ></RouterProvider>
     </HeroUIProvider>
   </StrictMode>,
 )

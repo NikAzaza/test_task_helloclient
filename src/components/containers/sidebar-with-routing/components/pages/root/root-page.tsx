@@ -1,6 +1,7 @@
 import {SidebarWithRouting} from "../../../sidebar-with-routing.tsx";
 import {SidebarWithMockData} from "../../../../sidebar-with-mock-data/sidebar-with-mock-data.tsx";
 import {useState} from "react";
+import './root-page.css';
 
 export function RootPage() {
   const [isRouter, setIsRouter] = useState<boolean>(false)

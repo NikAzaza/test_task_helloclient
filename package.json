@@ -7,8 +7,6 @@
   "scripts": {
     "dev": "vite",
     "build": "tsc -b && vite build",
-    "predeploy": "npm run build",
-    "deploy": "gh-pages -d dist",
     "lint": "my-vue-app/node_modules/.bin/eslint .",
     "preview": "my-vue-app/node_modules/.bin/vite preview"
   },
@@ -19,7 +17,6 @@
     "@heroui/theme": "^2.4.23",
     "@tailwindcss/vite": "^4.1.16",
     "framer-motion": "^12.23.24",
-    "gh-pages": "^6.3.0",
     "react": "^19.1.1",
     "react-dom": "^19.1.1",
     "react-router": "^7.9.4",

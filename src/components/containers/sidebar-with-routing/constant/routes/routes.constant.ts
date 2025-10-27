@@ -30,4 +30,7 @@ export const APP_ROUTES: RouteObject[] = [
 ]
 
 export const ROUTER = createBrowserRouter(APP_ROUTES);
-export const ROUTER_2 = createBrowserRouter([{path: '/', Component: RootPage, children: APP_ROUTES}]);
+export const ROUTER_2 = createBrowserRouter(
+  [{path: '/', Component: RootPage, children: APP_ROUTES}],
+    {basename: '/test_task_helloclient'}
+);

@@ -1,20 +1,31 @@
 import { DefaultSidebarItemIconView } from "./default-sidebar-item-icon-view.tsx";
-import type {PropsWithChildren, ReactNode} from "react";
+import type {MouseEventHandler, PropsWithChildren, ReactNode} from "react";
 
 type DefaultSidebarItemViewProps = {
+  title: string;
   imageSrc: string;
   textComponent?: ReactNode;
   containerClasses?: string;
+  mouseEnterCallback: MouseEventHandler<HTMLLIElement>;
+  mouseLeaveCallback: MouseEventHandler<HTMLLIElement>;
 };
 
 export function DefaultSidebarItemView({
+  title,
   imageSrc,
   containerClasses,
   textComponent,
   children,
+  mouseEnterCallback,
+  mouseLeaveCallback,
 }: PropsWithChildren<DefaultSidebarItemViewProps>) {
   return (
-    <li className={'flex flex-col ' + (containerClasses || '')}>
+    <li
+      title={title}
+      className={'flex flex-col ' + (containerClasses || '')}
+      onMouseEnter={mouseEnterCallback}
+      onMouseLeave={mouseLeaveCallback}
+    >
       <div className='flex flex-row'>
         <DefaultSidebarItemIconView imageSrc={imageSrc} />
         {textComponent}

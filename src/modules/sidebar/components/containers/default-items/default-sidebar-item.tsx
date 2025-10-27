@@ -1,7 +1,7 @@
 import type {SidebarItem} from "../../../models/sidebar-item.model.ts";
 import {DefaultSidebarItemView} from "../../views/default-items/default-sidebar-item-view.tsx";
 import {DefaultSidebarItemTextView} from "../../views/default-items/default-sidebar-item-text-view.tsx";
-import {useMemo} from "react";
+import {type MouseEventHandler, useMemo} from "react";
 import {DefaultSidebarChildrenList} from "./default-sidebar-children-list.tsx";
 import type {
   SidebarSelectHookSubItemPressCallback,
@@ -16,6 +16,8 @@ type DefaultSidebarItemProps<T> = {
   itemIndex: number;
   subItemPressCallback: SidebarSelectHookSubItemPressCallback;
   isSubItemActiveFn: SidebarSelectHookSubItemSelectedFn;
+  mouseEnterCallback: MouseEventHandler<HTMLLIElement>;
+  mouseLeaveCallback: MouseEventHandler<HTMLLIElement>;
 };
 
 export function DefaultSidebarItem<T extends SidebarItem>({
@@ -26,6 +28,8 @@ export function DefaultSidebarItem<T extends SidebarItem>({
   itemIndex,
   subItemPressCallback,
   isSubItemActiveFn,
+  mouseEnterCallback,
+  mouseLeaveCallback,
 }: DefaultSidebarItemProps<T>) {
 
   const textComponent = useMemo(() => {
@@ -48,9 +52,12 @@ export function DefaultSidebarItem<T extends SidebarItem>({
 
   return (
     <DefaultSidebarItemView
+      title={!isExpanded && !isMobileView && !item.children ? item.label : ''}
       imageSrc={item.iconData || ''}
       containerClasses={additionalClasses}
       textComponent={textComponent}
+      mouseEnterCallback={mouseEnterCallback}
+      mouseLeaveCallback={mouseLeaveCallback}
     >
       {listComponent}
     </DefaultSidebarItemView>

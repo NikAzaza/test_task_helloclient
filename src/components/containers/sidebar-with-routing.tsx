@@ -31,6 +31,7 @@ export function SidebarWithRouting() {
       <Sidebar
         items={items}
         titleLabel={'header'}
+        desktopClosedWidth={40}
         // initiallyOpened={sidebarOpened}
         // onStateChange={(isOpened) => setSidebarOpened(isOpened)}
         onViewPortChange={(_, isMobileView) => setIsMobileView(isMobileView)}

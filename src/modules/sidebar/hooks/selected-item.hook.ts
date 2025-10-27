@@ -38,13 +38,15 @@ export function useSelectedItem<Item extends SidebarItem>(
     itemPressedCallback(selectionData);
   };
 
-  const selectedItem = selectedData.index ? items[selectedData.index] : null
+  const selectedItem = selectedData.index ? items[selectedData.index] : null;
+  const getChildItemsBySelectedItemIndex = (index: number) => items[index].children || [];
 
   return {
     selectedItemIndex: selectedData.index,
     selectedSubItemIndex: selectedData.childIndex,
     selectedItemHasChildren: selectedItem ? !!selectedItem.children?.length : false,
     selectedChildrenItems: Array.isArray(selectedItem?.children) ? selectedItem.children : [],
+    getChildItemsBySelectedItemIndex,
     isItemSelected,
     isSubItemSelected,
     onItemClickHandler,
